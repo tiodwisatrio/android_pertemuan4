@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PracticeWidget</string>
+    <string-array name="program_studi">
+        <item>Informatika</item>
+        <item>Sistem Informasi</item>
+        <item>Teknik Komputer</item>
+    </string-array>
+</resources>
