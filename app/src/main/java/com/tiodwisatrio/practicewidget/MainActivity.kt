@@ -12,10 +12,6 @@ import android.widget.Spinner
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var cb_membaca: CheckBox
-    private lateinit var cb_bermusik: CheckBox
-    private lateinit var cb_memasak: CheckBox
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,13 +22,14 @@ class MainActivity : AppCompatActivity() {
         val radioGroup = findViewById<RadioGroup>(R.id.rg_jenis_kelamin)
         val sp_prodi = findViewById<Spinner>(R.id.sp_prodi)
 
-        cb_membaca = findViewById(R.id.cb_membaca)
-        cb_bermusik = findViewById(R.id.cb_bermusik)
-        cb_memasak = findViewById(R.id.cb_memasak)
+        val cb_membaca = findViewById<CheckBox>(R.id.cb_membaca)
+        val cb_bermusik = findViewById<CheckBox>(R.id.cb_bermusik)
+        val cb_memasak = findViewById<CheckBox>(R.id.cb_memasak)
 
         // Tombol untuk menampilkan pesan Toast
         val btn_simpan = findViewById<Button>(R.id.btn_simpan)
 
+        // Function untuk mengambil data yang telah diisi user pada tiap-tiap komponen widget
         btn_simpan.setOnClickListener(View.OnClickListener {
             val nim = ed_nim.text.toString()
             val nama = ed_nama.text.toString()
@@ -42,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 val selectedRadioButton = findViewById<RadioButton>(selectedRadioButtonId)
                 selectedRadioButton.text.toString()
             } else {
-                "Jenis Kelamin tidak dipilih"
+                "-"
             }
 
             val selectedValue = sp_prodi.selectedItem.toString()
@@ -64,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    // Function untuk menampilkan Toast beserta Data yang telah user inputkan
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
